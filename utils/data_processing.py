@@ -198,3 +198,9 @@ def load_esolmet_data():
     esolmet.I_dir_Avg = esolmet.I_dir_Avg.astype(float)
     print(esolmet.info())
     return esolmet
+
+def load_RUOA_data():
+    df = pd.read_csv("../data/2024-RUOA-HR.csv", skiprows=[0,2,3,4], index_col=0, parse_dates=True, dayfirst=True)
+    df.drop(columns=['RECORD'], inplace=True, errors='ignore')
+    df.dropna(inplace=True)
+    return df

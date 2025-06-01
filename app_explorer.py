@@ -4,16 +4,13 @@ from components.explorador import panel_explorador, panel_estadistica
 from components.panels import panel_documentacion, panel_trayectoriasolar, panel_fotovoltaica, panel_eolica, panel_confort
 from utils.data_processing import load_esolmet_data
 from utils.graficadores import graficado_Is_matplotlib
+from utils.confort import *
 #import plotly.express as px
 from utils.config import load_settings
 
-variables, latitude, longitude, gmt, name = load_settings()
-
-
-#No voy a usar plotly por el momento hasta no tener idea de los datos
-# Agregue una linea nueva
-
 esolmet = load_esolmet_data()
+
+variables, latitude, longitude, gmt, name = load_settings()
 
 app_ui = ui.page_fluid(
     ui.navset_card_tab(
@@ -48,3 +45,4 @@ def server(input, output, session):
 
 
 app = App(app_ui, server)
+
