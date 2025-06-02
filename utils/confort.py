@@ -18,11 +18,13 @@ import plotly.express as px
 def temp_neutralidad_oscilacion_media_anual(data):
     temp_max_diaria = data['AirTC_Avg'].resample('D').max()
     temp_max_media_mensual = temp_max_diaria.resample('M').mean()
+    t_max = temp_max_media_mensual.max()
 
     temp_min_diaria = data['AirTC_Avg'].resample('D').min()
     temp_min_media_mensual = temp_min_diaria.resample('M').mean()
+    temp_min = temp_min_media_mensual.min()
 
-    oscilacion_media_anual = float((temp_max_media_mensual - temp_min_media_mensual).mean())
+    oscilacion_media_anual = t_max - temp_min
 
     temp_media_anual = float(data['AirTC_Avg'].resample('Y').mean())
     
