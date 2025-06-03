@@ -50,3 +50,13 @@ def server(input, output, session):
 
 
 app = App(app_ui, server)
+
+
+# # %%
+# import duckdb
+
+# con = duckdb.connect('esolmet.db')
+# print(con.execute("SHOW TABLES").fetchall())
+# con.close()
+
+# %%
