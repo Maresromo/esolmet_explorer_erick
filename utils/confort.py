@@ -78,7 +78,7 @@ def DDH_calc(weather_df_1, t_column, t_neutralidad, modo="dia"):
 
     # Copia para no alterar el original
     weather_df = pd.DataFrame()
-    weather_df[t_column] = weather_df_1[t_column].resample('1H').mean().copy()
+    weather_df[t_column] = weather_df_1[t_column].resample('h').mean().copy()
 
     # Calcular grados-día por fila
     weather_df["DDH_heat"] = (weather_df[t_column] - t_neutralidad).clip(lower=0)
@@ -245,13 +245,19 @@ def graficar_DDH_por_periodos(data, t_column, t_neutralidad, periodos):
     df_grafico = pd.DataFrame(datos)
 
     # Crear la gráfica
-    fig = px.bar(df_grafico,
-                 x='Periodo',
-                 y='Valor',
-                 color='Tipo',
-                 barmode='group',
-                 labels={'Valor': 'Grados Día'},
-                 title='Comparación de DDH Heat y Cold por período')
+    fig = px.bar(
+        df_grafico,
+        x='Periodo',
+        y='Valor',
+        color='Tipo',
+        barmode='group',
+        labels={'Valor': 'Grados Día'},
+        title='Comparación de DDH Heat y Cold por período',
+        color_discrete_map={
+            'Heat': 'red',
+            'Cold': 'blue'
+        }
+    )
 
     return fig
 
