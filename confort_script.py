@@ -60,7 +60,6 @@ plot_t_comfort_plotly(df_ancho, {
 plot_heatmap_zona_confort_Morillon(df_ancho, temp_neutralidad_Morillon(df_ancho, t_column), periodo=[2024], modo="mes", col_temp=t_column)
 # %%
 DDH = DDH_calc(weather_df_1 = df_ancho, t_column= "AirTC_Avg", w_column='WS_ms_Avg', start_time = '2023-10', end_time = '2025', modelo= 'ASHRAE_55')
-DDH
 
 # %%
 periodos = [
