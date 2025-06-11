@@ -24,8 +24,32 @@ def panel_fotovoltaica():
 def panel_confort():
     return ui.nav_panel(
         "Confort térmico",
-        "Inserta aquí todo  sobre confort"
+
+        ui.input_date_range(
+            "fechas_t_confort",
+            "Fechas:",
+            start="2023-11-01",
+            end="2025-12-31",
+            min="2010-01-01",
+            max="2025-12-31",
+            language="es",
+            separator="a",
+        ),
+
+        # ui.input_checkbox_group(  
+        #     "Ec_temp_conf",  
+        #     "Ecuación temperatura de confort",  
+        #     {  
+        #         "Morillon": "Morillón",  
+        #         "ASHRAE_55": "ASHRAE_55",  
+        #     },  
+        # ),  
+
+        # ui.output_text("value"),  # si sigues usándolo
+
+        ui.output_plot("grafico_confort_plotly")  # 🔽 Agregado aquí
     )
+
 
 
 def panel_eolica():
