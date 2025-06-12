@@ -25,17 +25,6 @@ con.close()
 df_ancho = df.pivot(index='fecha', columns='variable', values='valor')
 df_ancho.index = pd.to_datetime(df_ancho.index)  # índice datetime obligatorio para ejes temporales
 
-# alias = {"I_dir_Avg":"Idir",
-#         "I_glo_Avg":"Iglo",
-#         "I_dif_Avg":"Idiff",
-#         "I_uv_Avg":"UV",
-#         "AirTC_Avg":"Te",
-#         "RH":"hr",
-#         "WS_ms_Avg":"ws",
-#         "WindDir":"wd",
-#         "CS106_PB_Avg":"P",
-#         "Rain_mm_Tot":"mm"}
-
 # Renombrar columnas usando alias desde settings
 _, _, _, _, _, alias = load_settings()
 df_ancho = df_ancho.rename(columns=alias)
@@ -194,7 +183,7 @@ def temp_neutralidad_Morillon(data, t_column):
 #         "Lim_sup_Morillon": "Límite superior Morillón"
 #     }
 
-def plot_confort_adaptativo(df, columnas_a_graficar):
+def plot_confort_adaptativo(columnas_a_graficar, df = df_ancho):
     from .confort import get_ASHRAE_55_temperatures, temp_neutralidad_Morillon
 
     t_column = 'Te'
