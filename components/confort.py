@@ -150,7 +150,8 @@ def panel_confort():
                       interesen; luego, en el panel derecho podrás ver la suma de las horas dentro 
                       de ese periodo en las que las condiciones de temperatura, velocidad del viento 
                       y humedad relativa provocan alguna categoría de estrés térmico, que va desde 
-                      frío extremo, pasando por condiciones neutrales (sin estrés), hasta calor extremo.''',
+                      frío extremo, pasando por condiciones neutrales (sin estrés), hasta calor extremo.
+                      Nota: ext. significa extremo, mod significa moderado''',
                     title="¿Cómo utilizar este gráfico?",
                     id="popover_info_confort_4",
                     placement="down"

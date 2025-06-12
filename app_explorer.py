@@ -17,30 +17,6 @@ from utils.confort import (
     plot_confort_adaptativo
 )
 
-# con = duckdb.connect('esolmet.db')
-# df = con.execute("SELECT * FROM lecturas").fetchdf()
-# con.close()
-
-# df_ancho = df.pivot(index='fecha', columns='variable', values='valor')
-# df_ancho.index = pd.to_datetime(df_ancho.index)
-
-
-
-# # Rellenar fechas default al cargar panel
-# fecha_min = df_ancho.index.min().date()
-# fecha_max = df_ancho.index.max().date()
-
-
-# variables, latitude, longitude, gmt, name, alias = load_settings()
-# df_ancho = df_ancho.rename(columns=alias)
-
-# con = duckdb.connect('esolmet.db')
-
-#No voy a usar plotly por el momento hasta no tener idea de los datos
-# Agregue una linea nueva
-
-# esolmet = load_esolmet_data() 
-
 app_ui = ui.page_fillable(
     ui.navset_card_tab( 
         ui.nav_panel(
@@ -115,13 +91,3 @@ def server(input, output, session):
         return plot_utci(rangos=[r1, r2]) 
    
 app = App(app_ui, server)
-
-
-# # %%
-# import duckdb
-
-# con = duckdb.connect('esolmet.db')
-# print(con.execute("SHOW TABLES").fetchall())
-# con.close()
-
-# %%
