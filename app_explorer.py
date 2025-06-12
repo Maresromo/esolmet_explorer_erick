@@ -2,19 +2,14 @@ from shiny import App, ui, render
 import shinyswatch  
 from components.explorador import panel_explorador, panel_estadistica
 from components.panels import panel_documentacion, panel_trayectoriasolar, panel_fotovoltaica, panel_eolica
-from components.confort import panel_confort
-# from utils.confort import 
-from utils.data_processing import load_esolmet_data
 from utils.graficadores import graficado_Is_matplotlib
-#import plotly.express as px
 from utils.config import load_settings
-# import duckdb
 from shiny import render, ui
 import plotly.graph_objects as go
 
+from components.confort import panel_confort
 from shiny import reactive
 import pandas as pd
-import duckdb
 from utils.confort import (
     graficar_DDH_por_periodos, 
     plot_heatmap_zona_confort_Morillon,
